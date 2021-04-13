@@ -1,0 +1,30 @@
+
+<div class="container">
+    <h2 class="text-center mb-5">Wishlist of {{username}}</h2>
+    <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let p of wishlist,let i=index">    
+            <div class="card mb-3 mx-3">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img [src]=p.productImgLink class="card-img-top  image-fluid"  height= 250px; alt="...">
+                 
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <h1 class="card-title mb-2">{{p.productname}}</h1>
+                        <p class="card-title"> {{p.productID}}</p>
+                        <p class="card-title"> {{p.brand}}</p>
+                        <p class="card-title"> {{p.colour}}</p>
+                        <p class="card-title price">Price: {{p.cost | currency:"INR"}}</p>
+                        <p class="card-title pb-4">Rating:<ngb-rating [max]="5" [rate]="p.rating" [readonly]="true"></ngb-rating></p>
+                                        
+                        <button class="btn btn-danger btn-sm mb-auto d-block float-start"(click)="delete(i)"><h6 class="fas fa-times-circle m-1"></h6>Remove</button>
+                        <button class="btn btn-success btn-sm mb-auto text-light d-block float-end"(click)="additem(p)"><h6 class="fas fa-cart-arrow-down m-1"></h6>Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+     
+</div>

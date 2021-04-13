@@ -1,0 +1,90 @@
+
+<body style="background-image: url('https://i.pinimg.com/originals/0c/64/b8/0c64b866e848e0cacb94466619d02583.jpg');background-repeat: no-repeat;background-size: cover;width: 100%;" >
+    <div class="text-right bg-light px-5" style="height: 100px;">
+        <h3 class="text-center d-1 pr-5"><h4 class="fas fa-user text-info p-2"></h4>{{username}}</h3>
+        <!-- <a routerLink="/admincomp" style="color: darkmagenta;text-decoration:none;margin-right: auto;"  routerLinkActive="active"><b>Add Products </b></a> -->
+         <a routerLink="/allproducts" style="color: darkmagenta;text-decoration: none;padding-left: 10px;" routerLinkActive="active"><b>All Products</b> </a> 
+       
+        <button class="btn btn-success float-end ml-3" (click)="logout()"><h6 class="fas fa-sign-out-alt m-1"></h6><b>Logout</b></button>
+       
+    </div>
+    <div class="container-fluid col-md-7">
+        
+    
+        <form action="form" class="container row  m-2 bg-light " [formGroup]="registerForm" (ngSubmit)="onSubmit()" style="border-radius: 1%;">
+            
+            <p class="display-4  text-center m-3"  style="color:darkmagenta;">Adding New Products</p>
+            <!-- product name -->
+            <div class="form-group col-md-6 mt-3">
+                <label  class="form-label"><b>Product Name</b></label>
+                <input type="text" class="form-control"  name="productname" placeholder="name of the product" formControlName="productname">
+               
+            </div>
+           
+            <div class="form-group col-md-6 mt-3">
+                <label  class="form-label"><b>product ID</b></label>
+                <input type="number" class="form-control"  name="productID" placeholder="product ID" formControlName="productID">
+              
+               
+            </div>
+          
+            
+            <div class="form-group col-md-6">
+                <label  class="form-label"><b>Brand</b></label>
+                <input type="text" class="form-control"  name="brand" placeholder="brand of the product" formControlName="brand">
+               
+               
+            </div>
+            
+    
+            <div class="form-group col-md-6">
+                <label  class="form-label"><b>Colour</b></label>
+                <input type="text" class="form-control"  name="colour" placeholder="colour of the product" formControlName="colour">
+              
+            </div>
+            <div class="form-group col-md-5">
+                <label class="form-label"><b>Category</b></label>
+                <input type="text" class="form-control"  name="category" placeholder="category of the product" formControlName="category">
+               
+                
+            </div>
+            <div class="form-group col-md-5">
+                <label><b>Quantity</b></label>
+                <input type="number" class="form-control" name="quantity" formControlName="quantity" placeholder="Enter quantity" >
+                <!-- <p class="text text-danger" *ngIf="getcontrol().pquantity.errors?.required && getcontrol().pquantity.touched">Quantity is required</p> -->
+                
+                
+            </div>
+          
+            <div class="form-group col-md-4">
+                <label class="form-label"><b>Cost</b></label>
+                <input type="number" class="form-control"  name="cost" placeholder="cost in Rupees" formControlName="cost">
+               
+               
+            </div>
+            <div class="form-group col-md-5">
+                <label  class="form-label"><b>Rate Product :</b></label>
+                <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"  name="rating" class="px-2" formControlName="rating"></ngb-rating>
+                
+            </div>
+            <div class="form-group col-md-8">
+                <label><b>Product Description</b></label>
+                <textarea cols="100" rows="3"  class="form-control"  name="description" formControlName="description" placeholder="Enter product description" ></textarea>
+                    
+            </div>
+        
+            <!-- photo -->
+            <div class="form-group col-md-8 py-3">
+                <label><b>Upload Product Image</b></label>
+                 <input type="file" class="form-control" (change)="incomingfile($event)" name="photo" accept='image/*' placeholder="Upload image of the product">
+            </div>
+            <div class="col-8 m-3">
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Add to Products</button>
+            </div>
+        </form>
+    </div>
+    
+    </body>
+
+    
+    

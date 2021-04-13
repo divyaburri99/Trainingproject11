@@ -1,0 +1,46 @@
+
+<body style="background-color: turquoise">
+   
+ 
+  <div class="bg-light px-5 text-right" style="height: 80px;">
+        <!-- <a routerLink="/admincomp" style="color: rebeccapurple;text-decoration: none;margin-top: 30px;" routerLinkActive="active"><b>Add Product </b></a> -->
+        <button class="btn btn-success  px-4 my-4 float-end" (click)="logout()"><h6 class="fas fa-sign-out-alt m-1"></h6><b>Logout</b></button>
+       
+        <button class="btn btn-warning  px-4 my-4 float-start m-1" (click)="back()"><h5 class="fas fa-plus-circle"></h5><b>Add New Product</b></button>
+        
+     
+    </div>
+
+    <h1 style="text-align: center;">All Products({{count}})</h1>
+   <div class="container mt-5 col-md-12">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <div *ngFor="let p of products,let i=index">
+         <div class="col">
+         <div class="card border-success mb-3" style="border-radius: 3%;height:40rem;">
+           <img [src]=p.productImgLink class="card-img-top mx-auto mt-2" style="height: 200px;width:200px;" alt="...">
+          <div class="card-body">
+            <h3 class="card-title text-center" style="color: chocolate">{{p.productname}}</h3>
+            <h5 class="card-text">Brand:<b style="color: darkmagenta;">{{p.brand}}</b></h5>
+            <h5 class="card-text">Product ID:<b style="color: darkmagenta;">{{p.productID}}</b></h5>
+            <h5 class="card-text">Colour:<b style="color: darkmagenta;">{{p.colour}}</b></h5>
+           <h5>Rating: <ngb-rating [max]="5" [rate]="p.rating" [readonly]="true"></ngb-rating></h5>
+            <h5 class="card-text">Description:<b style="color: darkmagenta;">{{p.description}}</b></h5>
+            <h5 class="card-text">Category:<b style="color: darkmagenta;">{{p.category}}</b></h5>
+            <!-- <h5 class="card-text">Quantity:<b style="color: darkmagenta;">{{p.quantity}}</b></h5> -->
+            <h5 class="card-text">Cost:<b style="color: teal">{{(p.cost)| currency:"INR"}}</b></h5>
+          </div>
+          <div>
+             <div>
+               <a  class="btn btn-info" style="float: left;margin: 10px;" (click)="edit(p)"><h5 class="fas fa-edit"></h5>Edit</a>
+             </div>
+             <div>
+               <a  class="btn btn-danger" style="float:right;margin: 10px;" (click)="delete(i)"><h5 class="fas fa-trash-alt"></h5>Delete</a>
+             </div>
+          </div>
+         </div>
+         </div>
+      </div>
+    </div>
+ </div>
+ 
+</body>

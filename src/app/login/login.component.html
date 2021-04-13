@@ -1,0 +1,54 @@
+
+  <body style="background-image:url('/assets/login-page-bg.jpg');background-repeat: no-repeat;background-size: cover;height: 650px;">
+      
+  
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-sm-2"></div>
+        <div class="card col-md-7 col-sm-6 mt-5">
+            <div class="row">
+            <div class="col-md-5 col-sm-3">
+               <img src="https://pbs.twimg.com/profile_images/1267713887165485061/WUR4QXtd.jpg" alt="" height="300px" width="300px">
+            </div>
+            <div class="col-md-5 col-sm-3">
+            <h2 style="color:darkmagenta;text-align: center;"><h1 class="fas fa-users m-2 mt-3"></h1>Login</h2>
+            <form  [formGroup]="loginForm" class="row" (ngSubmit)="onSubmit()">
+               
+   
+                <div class="form-floating mb-3">
+                    
+                    <input type="text" class="form-control" name="username"id="username" placeholder="username" formControlName="username">
+                    <label for="username" ><b>Username</b></label>
+                    <p *ngIf="loginForm.get('username').touched&&loginForm.get('username').errors?.required" style="color: red;">UserName is required</p>
+                    
+                </div>
+                <div class="form-floating">
+                   
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password" formControlName="password">
+                    <label  for="password"><b>Password</b></label>
+                    <p *ngIf="loginForm.get('password').touched&&loginForm.get('password').errors?.required" style="color: red;">Password is required</p>
+       
+     
+                </div> 
+                <div>
+                    <a class="nav-link" routerLink="resetpassword" routerLinkActive="active" (click)="reset()" style="color:teal"> 
+                        <h5 class="fas fa-lock p-1"></h5>Forgot Password?</a>
+                </div>          
+               
+            
+                <div class="col-12">
+                    <button type="submit" class="btn btn-warning mt-3" [disabled]="loginForm.invalid"><h5 class="fas fa-sign-in-alt">Login</h5></button>
+                  
+                </div>
+            
+                <div>
+                    <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="register()" style="text-align: center;"> <h6>New to Website? Create an account</h6></a>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-3 col-sm-2"></div> -->
+    </div>
+     </div> 
+</body>

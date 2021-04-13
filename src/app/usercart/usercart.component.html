@@ -1,0 +1,95 @@
+
+<div class="bg-light px-5 text-right">
+  <button class="btn btn-warning float-start m-3" (click)="back()" style="margin-left: 20px;"><h5 class="fas fa-backward"></h5>Back</button>
+        
+    <button class="btn btn-success float-end px-4 my-2" (click)="logout()"><h6 class="fas fa-sign-out-alt m-1"></h6>Logout</button>
+</div>
+
+<div class="container-fluid" style="background-image: url(https://us.123rf.com/450wm/lightfieldstudios/lightfieldstudios1909/lightfieldstudios190921490/130549673-festive-wrapped-presents-in-shopping-cart-on-blue-background-with-copy-space.jpg?ver=6);background-size: cover;background-repeat: no-repeat;">
+    <p class="display-4 text-dark text-center">Cart of {{username}}</p>
+    <a routerLink="" (click)="showorders()">
+     
+      <h4 class="fas fa-list-alt text-info text-center" style="text-align: center;">My Orders ({{userOrderSize}})</h4>
+   </a>
+ 
+    <div class="container-fluid p-3 " *ngIf="cart.length!==0"> 
+      <h3>Total Price:<strong>{{amount | currency:"INR"}}</strong></h3>
+    </div>
+  
+   
+
+    <div class="container-fluid">
+      
+       <div class="row mt-5 gx-3 d-block mx-auto">
+        <div class="col-md-7 col-lg-9 col-9 mx-auto mb-lg-0 mb-5">
+      <div class="card p-4 d-block mx-auto m-3" *ngFor="let p of cart, let i=index" style="max-width: 1000px;max-height: 100%;">
+          <div class="row">
+            <div class="col-md-5 col-11 mx-auto bg-light d-flex justify-content-center align-items-center"  >
+              <img [src]=p.productImgLink  style="width: 200px; height: 200px;" alt="..."> 
+            </div>
+            <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+              <div class="card-body">
+                <div class="row">
+                <h4 class="card-title">{{p.productname}}</h4> 
+                <p class="card-title">Brand: <b>{{p.brand}}</b></p> 
+                <p class="card-title">Colour : <b>{{p.colour}}</b></p> 
+                <p class="card-title">Rating:<ngb-rating [max]="5" [rate]="p.rating" [readonly]="true"></ngb-rating></p>
+                <p class="card-title price" *ngIf="p.status=='Available'">Price: {{p.cost | currency:"INR"}}</p>
+                <p class="card-title price" *ngIf="p.status=='Unavailable'">Price: <strike>{{p.cost | currency:"INR"}}</strike></p>
+                <p class="card-title">Product Description : {{p.description}}</p> 
+                <div class="col-5">
+                     
+                  <ul class="pagination justify-content-end set_quantity ">
+                    <li class="page-item">
+                      <button class="page-link" href="#" (click)="incr(p)"><i class="fa fa-plus" aria-hidden="true"></i>  </button>
+                    </li>  
+                
+                            <span class="text-center p-1" >{{p.quantity}}</span>
+  
+                     
+                       
+                     
+                    <li class="page-item">
+                      <button class="page-link" href="#" (click)="decr(p)"><i class="fa fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </li>    
+                     </ul>
+                  
+                    
+              </div>
+                 </div>
+  
+               
+              
+                <div class="row mt-3">
+                  <div class="row mt-3">
+                    <!-- <span class="float-end text-muted" *ngIf="p.status=='Available'">Status: {{p.status}}</span> -->
+                    <span class="float-end text-danger" *ngIf="p.status=='Unavailable'">Product {{p.status}}</span>
+                  
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-sm-6 col-md-6">
+                      <td class="text-center"><button class="btn btn-success p-2 mt-1" style="display: block; width: 100%;" [disabled]="p.status=='Unavailable'" (click)="additem(i)">Purchase</button></td>
+                  </div>
+                    <div class="col-sm-6 col-md-6">
+                      <p class="card-title"><button class="btn btn-danger" (click)="delete(i)"><h5 class="fas fa-times-circle"></h5>Delete</button></p>
+               
+                    </div>
+                  
+                 </div>
+                   
+               </div>
+  
+              
+           
+            </div>
+          </div>
+        </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+   

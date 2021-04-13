@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #3BB9FF;" >
+  
+  <a class="navbar-brand" href="#"><img src="assets/logo2.png" width="80px" alt="" style="border-radius: 50%;"></a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav  m%-auto">
+     
+      <li class="nav-item" >
+        <h5>
+        <a class="nav-link"   routerLink="home" routerLinkActive="active"><i class="fas fa-home p-2"></i>Home</a>
+        </h5>
+      </li>
+      <li class="nav-item" *ngIf="username==null">  
+        <h5>
+        <a class="nav-link"   routerLink="login" routerLinkActive="active"><i class="fas fa-sign-in-alt p-2"></i>Login</a>
+        </h5>
+      </li>
+      
+      <li class="nav-item" *ngIf="username==null">
+        <h5>
+        <a class="nav-link"  routerLink="register" routerLinkActive="active"><i class="fas fa-align-left p-2"></i>Register</a>
+        </h5>
+      </li> 
+    </ul>
+    
+  </div>
+
+</nav>
+<div>
+<router-outlet></router-outlet>
+</div>

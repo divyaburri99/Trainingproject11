@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:wght@500&display=swap');
+
+div{
+    font-family: 'Merriweather', serif;
+    font-family: 'Playfair Display', serif;
+}
+h2{
+    font-family: 'Merriweather', serif;
+    font-family: 'Playfair Display', serif;
+}
+/*.container-fluid{
+   background-image: url("/assets/bg-1.png");
+   height: 100%;
+   height: 640px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}*/
+.card{
+    border-color: teal;
+    border: 2px solid teal;
+}

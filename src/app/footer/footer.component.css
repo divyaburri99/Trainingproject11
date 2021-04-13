@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:wght@500&display=swap');
+
+div{
+    font-family: 'Merriweather', serif;
+    font-family: 'Playfair Display', serif;
+}
+h3{
+    font-family: 'Merriweather', serif;
+    font-family: 'Playfair Display', serif;
+}
+
+.heading{
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 14px;
+    color: white;
+}
+.element{
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    
+}

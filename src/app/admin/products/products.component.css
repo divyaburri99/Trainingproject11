@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Serif:wght@700&family=Playfair+Display:wght@500;700&display=swap');
+
+body{
+    font-family: 'Merriweather', serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Playfair Display', serif;
+}
+.active{
+    font-weight: bold;
+}
+ngb-rating {
+    color: #FFC107;
+    font-size: 25px;
+}

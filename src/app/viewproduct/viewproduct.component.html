@@ -1,0 +1,32 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img [src]=product?.productImgLink alt="Product Image" width="100%" >
+        </div>
+        
+        <div class="col-sm-6 d-flex">
+            
+            <div class="align-self-center">
+                <button class="btn btn-warning float-end " (click)="back()" ><h5 class="fas fa-backward"></h5>Back</button>
+         
+            <h1 style="color: darkmagenta;">{{product?.productname|titlecase}}</h1>
+            <h5>Product ID:<b>{{product?.productID}} </b></h5>
+            <h5>Brand:<b>{{product?.brand}}</b></h5>
+            <h5>Colour:<b>{{product?.colour}}</b></h5>
+            <h5>Rating:<ngb-rating [max]="5" [rate]="product?.rating" [readonly]="true"></ngb-rating></h5>
+        
+             <h5>Cost: <b>{{product?.cost | currency:"INR"}}</b></h5>
+             <h5>Description:<b>{{product?.description}}</b></h5>
+           
+           
+           <div class="mt-5"> <button class="btn btn-success float-end m-3" (click)="additem()"><h5 class="fas fa-cart-arrow-down m-1"></h5>Add to Cart</button>
+         <button class="btn btn-danger float-end m-3" (click)="wishlist()"><h5 class="fas fa-heart"></h5>Wishlist</button>
+         
+            <!-- <button class="btn btn-warning float-end m-3" (click)="back()" style="margin-left: 20px;"><h5 class="fas fa-backward"></h5>Back</button> -->
+            </div>
+        
+        </div>
+    </div>
+</div>
